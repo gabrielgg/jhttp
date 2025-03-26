@@ -24,8 +24,6 @@ pipeline:
                   identifier: build_java_app
                   name: Build Java App
                   spec:
-                    connectorRef: ggdockerhub
-                    image: openjdk:8
                     shell: Sh
                     command: |-
                       echo "Welcome to Harness CI"
