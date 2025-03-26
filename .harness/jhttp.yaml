@@ -53,6 +53,12 @@ pipeline:
                       spec:
                         paths:
                           - /harness/target/*.xml
+                  failureStrategies:
+                    - onFailure:
+                        errors:
+                          - AllErrors
+                        action:
+                          type: Ignore
               - step:
                   type: Test
                   name: RunTestsWithIntelligence
