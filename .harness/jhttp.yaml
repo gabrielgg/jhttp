@@ -76,7 +76,7 @@ pipeline:
                   name: Build and push to Docker
                   identifier: Build_and_push_to_Docker
                   spec:
-                    connectorRef: YOUR_DOCKER_CONNECTOR_ID
+                    connectorRef: ggdocker
                     repo: gabrielgagv/harness-se
                     tags:
                       - <+pipeline.sequenceId>
