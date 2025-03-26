@@ -71,6 +71,15 @@ pipeline:
                     connectorRef: account.harnessImage
                     image: maven:3.8-jdk-11
                     intelligenceMode: true
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: Build and push to Docker
+                  identifier: Build_and_push_to_Docker
+                  spec:
+                    connectorRef: YOUR_DOCKER_CONNECTOR_ID
+                    repo: gabrielgagv/harness-se
+                    tags:
+                      - <+pipeline.sequenceId>
           platform:
             os: Linux
             arch: Amd64
