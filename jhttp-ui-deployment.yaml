@@ -14,7 +14,7 @@ spec:
         app: jhttp
     spec:
       containers:
-      - image: index.docker.io/v2/gabrielgagv/harness-se:13
+      - image: docker.io/v2/gabrielgagv/harness-se:13
         name: jhttp
         ports:
         - containerPort: 8080
