@@ -95,6 +95,14 @@ pipeline:
           deploymentType: Kubernetes
           service:
             serviceRef: jhttp
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
           environment:
             environmentRef: harnessdevenv
             deployToAll: false
@@ -117,12 +125,16 @@ pipeline:
                             spec:
                               count: 1
                           skipDryRun: false
+                          delegateSelectors:
+                            - helm-delegate
                     - step:
                         name: Canary Delete
                         identifier: canaryDelete
                         type: K8sCanaryDelete
                         timeout: 10m
-                        spec: {}
+                        spec:
+                          delegateSelectors:
+                            - helm-delegate
               - stepGroup:
                   name: Primary Deployment
                   identifier: primaryDeployment
