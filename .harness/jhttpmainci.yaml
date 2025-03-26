@@ -1,0 +1,14 @@
+inputSet:
+  pipeline:
+    identifier: jhttp
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+  name: jhttp-main-ci
+  identifier: jhttpmainci
+  orgIdentifier: default
+  projectIdentifier: Gabriel_Garcia
