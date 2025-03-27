@@ -128,6 +128,21 @@ pipeline:
                           delegateSelectors:
                             - helm-delegate
                     - step:
+                        type: HarnessApproval
+                        name: Approve Canary
+                        identifier: Approve_Canary
+                        spec:
+                          approvalMessage: Test canary
+                          includePipelineExecutionHistory: true
+                          isAutoRejectEnabled: false
+                          approvers:
+                            userGroups:
+                              - _project_all_users
+                            minimumCount: 1
+                            disallowPipelineExecutor: false
+                          approverInputs: []
+                        timeout: 1d
+                    - step:
                         name: Canary Delete
                         identifier: canaryDelete
                         type: K8sCanaryDelete
